@@ -1,3 +1,5 @@
+import { Queue } from './Queue';
+
 /**
  * A generic Graph data structure.
  * Constructor takes a list of adjacency pairs: [['a', 'b'], ['a', 'c']...]
@@ -19,6 +21,7 @@ export class Visitor {
   }
 
   visit(node) {
+    node.visited = true;
     this.nodesVisited.push(node.name);
   }
 }
@@ -54,12 +57,31 @@ export class Graph {
   }
 
   /**
+   * Returns the node associated with nodeName, or null if not found.
+   * @param nodeName The node name.
+   * @returns A node, or null.
+   */
+  getNode(nodeName) {
+    return this.nodeMap[nodeName];
+  }
+
+  /**
    * Implement depth first traversal, returning a list of the node names visited.
    * @returns {Array}
    */
   listNodesDepthFirst() {
     const visitor = new Visitor();
     this.traverseDepthFirst(this.firstNode, visitor);
+    return visitor.nodesVisited;
+  }
+
+  /**
+   * Implement depth first traversal, returning a list of the node names visited.
+   * @returns {Array}
+   */
+  listNodesBreadthFirst() {
+    const visitor = new Visitor();
+    this.traverseBreadthFirst(this.firstNode, visitor);
     return visitor.nodesVisited;
   }
 
@@ -71,11 +93,23 @@ export class Graph {
   traverseDepthFirst(node, visitor) {
     if (!node.visited) {
       visitor.visit(node);
-      node.visited = true;
       for (let i = 0; i < node.adjacents.length; i++) {
         if (!node.adjacents[i].visited) {
           this.traverseDepthFirst(node.adjacents[i], visitor);
         }
+      }
+    }
+  }
+
+  traverseBreadthFirst(root, visitor) {
+    const queue = new Queue();
+    visitor.visit(root);
+    queue.enqueue(root.adjacents);
+    while (!queue.isEmpty()) {
+      const node = queue.dequeue();
+      if (!node.visited) {
+        visitor.visit(node);
+        queue.enqueue(node.adjacents);
       }
     }
   }
