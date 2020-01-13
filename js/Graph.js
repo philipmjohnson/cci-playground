@@ -12,6 +12,7 @@ export class Node {
   }
 }
 
+/** The visit() method is called each time a traversal algorithm visits a node. */
 export class Visitor {
   constructor() {
     this.nodesVisited = [];
@@ -24,12 +25,19 @@ export class Visitor {
 
 /** The Graph data structure. */
 export class Graph {
+  /**
+   * Create a new Graph instance, initialized with the graph layout.
+   * @param nodePairs An array of array pairs, each pair consisting of two strings indicating the node name.
+   */
   constructor(nodePairs) {
     this.firstNode = null; // keep a pointer to first node
     this.nodeMap = {}; // key is node name, value is Node instance.
     nodePairs.forEach(nodePair => this.addNodes(nodePair));
     }
 
+  /**
+   * initialize the graph data structure with nodes and a connection between them.
+   */
   addNodes(nodePair) {
     let node1 = this.nodeMap[nodePair[0]];
     let node2 = this.nodeMap[nodePair[1]];
@@ -45,12 +53,21 @@ export class Graph {
     node1.adjacents.push(node2);
   }
 
+  /**
+   * Implement depth first traversal, returning a list of the node names visited.
+   * @returns {Array}
+   */
   listNodesDepthFirst() {
     const visitor = new Visitor();
     this.traverseDepthFirst(this.firstNode, visitor);
     return visitor.nodesVisited;
   }
 
+  /**
+   * Traverse this graph in depth first order.
+   * @param node The first node to be visited
+   * @param visitor An instance of the Visitor class; calls its visit() method with the node being visited.
+   */
   traverseDepthFirst(node, visitor) {
     if (!node.visited) {
       visitor.visit(node);
