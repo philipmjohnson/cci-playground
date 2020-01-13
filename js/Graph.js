@@ -12,6 +12,16 @@ export class Node {
   }
 }
 
+export class Visitor {
+  constructor() {
+    this.nodesVisited = [];
+  }
+
+  visit(node) {
+    this.nodesVisited.push(node.name);
+  }
+}
+
 /** The Graph data structure. */
 export class Graph {
   constructor(nodePairs) {
@@ -36,19 +46,18 @@ export class Graph {
   }
 
   listNodesDepthFirst() {
-    this.nodeNameList = [];
-    this.traverseDepthFirst(this.firstNode);
-    return this.nodeNameList;
+    const visitor = new Visitor();
+    this.traverseDepthFirst(this.firstNode, visitor);
+    return visitor.nodesVisited;
   }
 
-  traverseDepthFirst(node) {
+  traverseDepthFirst(node, visitor) {
     if (!node.visited) {
+      visitor.visit(node);
       node.visited = true;
-      console.log('visiting', node.name);
-      this.nodeNameList.push(node.name);
       for (let i = 0; i < node.adjacents.length; i++) {
         if (!node.adjacents[i].visited) {
-          this.traverseDepthFirst(node.adjacents[i]);
+          this.traverseDepthFirst(node.adjacents[i], visitor);
         }
       }
     }
