@@ -1,7 +1,6 @@
 /**
  * Provides a simple implementation of a binary tree.
  * The printer is the nicest feature for checking your work.
- * Assumes each node has a string called 'name'.
  */
 
 export class Node {
@@ -34,7 +33,6 @@ export class BinaryTree {
       return '';
     }
     const newPad = `${pad}  `;
-    // eslint-disable-next-line
-    return pad + node.name + '\n' + this.prettyprint(node.leftNode, newPad) + this.prettyprint(node.rightNode, newPad);
+    return `${pad}${node.name}\n${this.prettyprint(node.leftNode, newPad)}${this.prettyprint(node.rightNode, newPad)}`;
   }
 }
