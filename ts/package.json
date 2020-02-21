@@ -8,16 +8,8 @@
     "test": "ts-mocha *.test.ts",
     "tsc": "tsc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/philipmjohnson/cci-playground.git"
-  },
   "author": "Philip Johnson",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/philipmjohnson/cci-playground/issues"
-  },
-  "homepage": "https://github.com/philipmjohnson/cci-playground#readme",
   "dependencies": {
     "lodash": "^4.17.15"
   },
@@ -26,16 +18,11 @@
     "@types/expect": "^24.3.0",
     "@types/lodash": "^4.14.149",
     "@types/mocha": "^7.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
     "babel-eslint": "^10.0.2",
     "chai": "^4.2.0",
-    "eslint": "^5.3.0",
-    "eslint-config-airbnb": "^17.1.1",
-    "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-meteor": "^5.1.0",
-    "eslint-plugin-mocha": "^6.2.1",
-    "eslint-plugin-react": "^7.14.2",
-    "eslint-utils": ">=1.4.1",
+    "eslint": "^5.16.0",
     "mocha": "^6.X.X",
     "ts-mocha": "^6.0.0",
     "ts-node": "^8.6.2",
