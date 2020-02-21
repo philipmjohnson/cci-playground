@@ -29,7 +29,7 @@ Set up a project that points to the ts/ directory in IntelliJ, then open the IsU
 
 It's always a good idea to verify that ESLint is running on your project. To do so, just add a couple of extra blank lines to the end of the file. IntelliJ should immediately tell you of the coding standard violation:
 
-<img src="https://github.com/ics-software-engineering/cci-playground/raw/master/images/js-intellij-isunique-eslint.png">
+<img src="https://github.com/ics-software-engineering/cci-playground/raw/master/images/ts-intellij-isunique-eslint.png">
 
 You can also run ESLint from the command line:
 
