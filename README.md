@@ -4,7 +4,7 @@ I share the view of many people that [Cracking the Coding Interview](http://www.
 
 <a href="https://www.youtube.com/watch?v=M-4XRcoMuWs"><img style="border:2px solid black" src="https://github.com/ics-software-engineering/cci-playground/raw/master/images/how-to-get-competent.png"></a>
 
-CCI recommends that you both solve the problem on paper (to simulate the whiteboard experience) as well as in correctly running code (in order to help you really assimilate the material). 
+CCI recommends that you both solve the problem on paper (to simulate the whiteboard experience) as well as in correctly running code (in order to help you really assimilate the material).
 
 After solving quite a few problems on paper, I decided to start over and implement them in Javascript. At that point, I spent at least a couple of days just setting up an environment that (a) configured ESLint, (b) supported testing in Mocha/Chai, and (c) allowed the use of ES7 constructs like `import` in Node.
 
@@ -25,11 +25,16 @@ To get started, [fork this repo](https://help.github.com/en/github/getting-start
 
 ## Languages
 
-The following pages provide documentation for each language currently supported in this repo:
+The following pages provide documentation for the languages supported in this repo:
 
-  * [Javascript](README-javascript.md) 
-  * [C++](README-cpp.md) 
-  
+  * [Clojure](README-clojure.md)
+  * [C++](README-cpp.md)
+  * [Java](README-java.md)
+  * [Javascript](README-javascript.md)
+  * [Python](README-python.md)
+  * [Rust](README-rust.md)
+  * [Typescript](README-typescript.md)
+
 Pick one (or more!) and follow the instructions to run the code for solving IsUnique in the language(s) of your choice on your laptop.
 
 ## Off to the races
@@ -45,5 +50,9 @@ Have fun!
 ## Thanks
 
 Thanks to:
- 
+
   * [Henri Casanova](https://github.com/henricasanova) for adding C++ support.
+  * [Cam Moore](https://github.com/cammoore) for adding Java support.
+  * [Peter Sadowski](https://github.com/peterjsadowski) for adding Python support.
+  * [Mahdi Belcaid](https://github.com/mahdi-b) and [Anthony Christe](https://github.com/anthonyjchriste) for adding Rust support.
+  * [Anthony Christe](https://github.com/anthonyjchriste) for adding Clojure support.
